@@ -332,7 +332,7 @@ public class WorkspaceTest {
         ws.linkTargetExist(ws.getPath("30"));
     }
 
-    @Test //ä¸æ”¯æŒè®¿é—® workspace ä¸Šå±‚ç›®å½•
+    @Test //不支持访问 workspace 上层目录
     public void testCheckLinkForAccessDenied() throws IOException {
 
         Files.createSymbolicLink(Paths.get(testSpaceHome.getAbsolutePath(), "working-dir/a"),
@@ -419,7 +419,7 @@ public class WorkspaceTest {
     public void testPack() throws IOException, CompressorException {
         ws.create("c/a.txt");
         ws.create("a/c.txt");
-        ws.create("ä¸­æ–‡æ–‡ä»¶å.txt");
+        ws.create("中文文件名.txt");
         ws.create("a.txt");
         ws.create("b.wma");
 
@@ -433,7 +433,7 @@ public class WorkspaceTest {
         }
 
         assertEntry(targetFile, "a/c.txt");
-        assertEntry(targetFile, "ä¸­æ–‡æ–‡ä»¶å.txt");
+        assertEntry(targetFile, "中文文件名.txt");
 
         targetFile.delete();
     }
