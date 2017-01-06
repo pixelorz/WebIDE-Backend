@@ -1,4 +1,4 @@
-# Coding WebIDE Backend
+# WebIDE-Backend
 
 This repo is the backend of **Coding [WebIDE](https://ide.coding.net) Community Edition**
 
